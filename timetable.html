@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <script type="text/javascript" src="timetable.js"></script>
+            <style>
+                .cls-input{
+                border: 1px solid;
+                }
+                .cls-input-spacing{
+                display: block;
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+            </style>
+    </head>
+    <body onload="fetchAllTrainer()">
+            <div>
+                <fieldset><legend>Add Trainer</legend>
+                    <input type="number" min="1" max="25" id="tId" class="cls-input cls-input-spacing" placeholder="ID"/>
+                    <input type="text" id="tName" class="cls-input cls-input-spacing" placeholder="Name"/>
+                    <input type="email" id="tEmail" class="cls-input cls-input-spacing" placeholder="Email"/>
+                  <form>
+                    <input type="checkbox" id="mat" class="cls-input" name="skill" onClick="checkbox();" value="Maths">Maths<br></br>
+                    <input type="checkbox" id="phy" class="cls-input" name="skill"  onClick="checkbox();" value="Physics">Physics<br></br>
+                    <input type="checkbox" id="che" class="cls-input" name="skill" onClick="checkbox();" value="Chemistry">Chemistry<br></br>
+                    <input type="checkbox" id="eng" class="cls-input" name="skill" onClick="checkbox();" value="English">English<br></br>
+                    <input type="checkbox" id="cs" class="cls-input" name="skill" onClick="checkbox();" value="Comp.Sci.">Comp.Sci.<br></br>
+                    <input type="checkbox" id="bio" class="cls-input" name="skill" onClick="checkbox();" value="Biology">Biology<br></br>
+                    <input type="text" id="skills" name="skill"><br>
+                    <input type="submit" value="Skills">
+                  </form>  
+                    <input type="button" onclick="saveTrainer()" value="SAVE" class="cls-input-spacing" />
+                    <input type="button" onclick="fetchAllTrainer()" value="REFRESH" class="cls-input-spacing" />
+            </fieldset>
+            </div>
+    
+            <div>
+                <fieldset><legend>Classes </legend>
+                            <select id="searchBy" class="cls-input-spacing">
+                            <option value="">-select-</option>
+                            <option value="clsa">Class A</option>
+                            <option value="clsb">Class B</option>
+                        </select>
+                </fieldset>
+            </div>
+            <table id="tbl-trainer">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Skills</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tr-details">
+        
+                    </tbody>
+                </table>
+            <H1><font color="DARKCYAN"><center>TIME TABLE</font></H1>
+                <table border="2" cellspacing="3" align="center">
+                <tr>
+                 <td>9:00-10:00
+                 <td>10:00-11:00
+                 <td>11:00-12:00
+                 <td>12:00-01:00
+                 <td>01:00-02:00
+                 <td>02:00-3:00
+                 <td>03:00-04:00
+                </tr>
+                <tr>
+                 <td align="center"><font color="blue"><br>
+                 <td align="center"><font color="pink"><br>
+                 <td align="center"><font color="red"><br>
+                 <td rowspan="6"align="center">L<br>U<br>N<br>C<br>H
+                 <td align="center"><font color="maroon"><br>
+                 <td align="center"><font color="brown"><br>
+                 <td align="center"><font color="brown"><br>
+                </tr>
+                </table>
+    </body>    
+</html>
