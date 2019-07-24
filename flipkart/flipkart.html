@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>Flipkart</title>
+<script type ="text/javascript">
+    const show = ()=>{
+            const _url = 'http://localhost:1234/items';
+            fetch(_url,{})
+            .then(res=>res.json())
+            .then(items=>{
+                createitem(items);
+               
+            })
+        }
+        const createitem = (data)=>{
+            let rows = '';
+            data.items.forEach((u) => {
+                rows += `<tr>
+                            <td>${u.id}</td>
+                            <td>${u.name}</td>
+                            <td>${u.price}</td>
+                            <td><button onclick="cart('${u.id}','${u.name}','${u.price}')">Add to cart</button></td>
+                        </tr>`
+            });
+            const _table = `<table>
+                                <tr>
+                                    <th>id</th>
+                                    <th>name</th>
+                                    <th>price</th>
+                                </tr>
+                                ${rows}
+                            </table>`
+            document.getElementById('item').innerHTML = _table;
+        }
+        const search=()=>
+        {}
+        const cart=(id,name,price)=>
+        {   let quantity=1;
+            
+            const baseUrl = 'http://localhost:1234/cart';
+            fetch(baseUrl+'/add',{
+                
+                method : 'POST',
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body:JSON.stringify({
+                        id :id ,
+                        name: name,
+                        price:parseInt(price),
+                        quantity:quantity
+                        
+                    })
+                })
+                
+        }
+
+    </script>
+</head>
+
+<body bgcolor="#F1F3F6" onload="show()">
+<div>
+<table border="0" width="100%" bgcolor="#2874F0">
+
+<tr>
+<td align="right"><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\logo.png"></td>
+<td><input type="text" placeholder="Search for products, brands and more"></td>
+<td><input type="submit" value="Search"/></td>
+<th><font color="white">Login & Signup</font></th>
+<th><font color="white">More</font></th>
+<th><a href="cart.html">
+        <img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\cart.png">
+      </a></th>
+</tr>
+</table>
+</div>
+<div>
+<table border="0" width="100%" bgcolor="white" height="8%">
+<tr>
+<th width="12.5%">Electronics</th>
+<th width="12.5%">TVs & Appliances</th>
+<th width="12.5%">Men</th>
+<th width="12.5%">Women</th>
+<th width="12.5%">Baby & Kids</th>
+<th width="12.5%">Home & Furniture</th>
+<th width="12.5%">Sports, Books & More</th>
+<th width="12.5%">Offer Zone</th>
+</tr>
+</table>
+
+<br><br>
+</div>
+<div>
+<table border="0" width="100%" bgcolor="white">
+
+<tr>
+<td colspan="5"><h2>Earphones</h2><hr></td>
+<tr>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\earphone1.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\earphone2.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\earphone3.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\earphone4.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\earphone5.png" width="75%"><input type="button" value="Add to cart"></th>
+</tr>
+</table>
+
+<br>
+</div>
+<div>
+<table border="0" width="100%" bgcolor="white">
+
+<tr>
+<td colspan="5"><h2>Mobile Phones</h2><hr></td>
+<tr>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\mobile1.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\mobile2.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\mobile3.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\mobile4.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\mobile5.png" width="75%"><input type="button" value="Add to cart"></th>
+</tr>
+</table>
+
+<br>
+</div>
+<div>
+<table border="0" width="100%" bgcolor="white">
+
+<tr>
+<td colspan="5"><h2>Pendrives</h2><hr></td>
+<tr>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\pendrive1.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\pendrive2.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\pendrive3.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\pendrive4.png" width="75%"><input type="button" value="Add to cart"></th>
+<th><img src="C:\Users\MonishaB\Documents\ibm-fst-072019\nodejs\express-routes\flipkart\img\pendrive5.png" width="75%"><input type="button" value="Add to cart"></th>
+</tr>
+</table>
+
+<br>
+</div>
+<div id="item">
+    
+</div>
+</body>
+</html>
